@@ -1,16 +1,45 @@
-# fa23-cs411-team058-HelloWorld
-This is a template for CS411 project repository. Please make sure that your title follows the convention: [TeamID]-[YourTeamName]. All TeamID should have a three digit coding (i.e. if you are team 20, you should have `team020` as your ID.). You should also make sure that your url for this repository is [fa23-cs411-team000-teamname.git] so TAs can correctly clone your repository and keep them up-to-date.
+# flight-shield-app
 
-Once you setup your project, please remember to submit your team formation to the team form.
+## Folder Structure
+```
+.
+└── flight-shield-app/
+    ├── python_scripts # Scripts used to impute data and generate insert queries
+    ├── src            # HTML code for our app
+    ├── sql            # Stored procedures + Triggers SQL queries
+    └── static         # Images etc.
+```
+### Link to [citations](citations.md)
 
-## Permission
-You should make sure you allow TAs to access your repository. You can add TA(s) as a collaborator to your repository.
+## Setup
+We have setup our project by following [this tutorial](https://billmartin.io/blog/how-to-build-and-deploy-a-nodejs-api-on-google-cloud)
 
-## Preparing for your release
-Eash submission should be in it's own [release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases). Release are specific freezes to your repository. You should submit your commit hash on canvas or google sheet. When tagging your stage, please use the tag `stage.x` where x is the number to represent the stage.
+For database authentication, you will need to create a `.env` file inside the `flight-shield-app` folder locally. To do this, execute the following from your terminal.
+```
+cd flight-shield-app
+touch .env
+```
+And add the following lines to the `.env` file:
+```
+DB_HOST=<DB IP ADDRESS>
+DB_NAME=<DB NAME>
+DB_USER=<USER NAME>
+DB_PASS=<PASSWORD>
+INSTANCE_CONNECTION_NAME=<INSTANCE_CONNECTION_NAME>
+```
+Replace <...> with the corresponding values.
 
-## Keeping things up-to-date
-You should make sure you keep your project root files up-to-date. Information for each file/folders are explained.
+## Installing dependencies
+Ensure that all the dependencies are installed locally by executing `npm install`.
 
-## Code Contribution
-Individual code contribution will be used to evaluate individual contribution to the project.
+## Running the app
+
+To run the app, execute `npm run start`
+
+Open a browser to [http://localhost:8080/](http://localhost:8080/).
+
+## Deploying the app to GCP
+
+To deploy the app to GCP, execute `npm run deploy`
+
+To view the deployed app, execute `gcloud app browse`
